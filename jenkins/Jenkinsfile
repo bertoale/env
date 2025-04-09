@@ -14,6 +14,19 @@ pipeline {
             }
         }
 
+        stage('Remove Old Docker Images') {
+            steps {
+                sh 'docker rmi $(docker images -q) || true'
+            }
+        }
+
+        stage('Clean Docker Cache') {
+            steps {
+                sh 'docker builder prune -f'
+                sh 'docker system prune -a -f'
+            }
+        }
+
         stage('Build Docker Images') {
             steps {
                 dir('backend') {

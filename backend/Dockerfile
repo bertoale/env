@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /app
+WORKDIR /apps
 
 # Salin hanya package.json dan package-lock.json terlebih dahulu
 COPY package.json package-lock.json ./
