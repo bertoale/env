@@ -2,7 +2,7 @@
 FROM node:18
 
 # Tentukan working directory dalam container
-WORKDIR /app  
+WORKDIR /apps
 
 # Copy package.json dan package-lock.json terlebih dahulu
 COPY package.json package-lock.json ./
