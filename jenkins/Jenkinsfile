@@ -17,8 +17,7 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 dir('backend') {
-                    sh "docker build --no-cache -t $BACKEND_IMAGE .
-"
+                    sh "docker build --no-cache -t $BACKEND_IMAGE ."
                 }
                 dir('client') {
                     sh "docker build -t $FRONTEND_IMAGE ."
