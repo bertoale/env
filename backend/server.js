@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const todoRoutes = express.Router();
+const dotenv = require("dotenv");
 const PORT = 4000;
 let Todo = require("./todo.model");
 
@@ -10,8 +11,9 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+dotenv.config(); // ⬅️ ini wajib di awal sebelum akses process.env
 
-mongoose.connect("mongodb://172.21.125.117:27017/todos", {
+mongoose.connect("process.env.MONGO_URI", {
   useNewUrlParser: true,
 });
 const connection = mongoose.connection;
