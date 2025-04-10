@@ -43,6 +43,8 @@ pipeline {
                 withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {
                     sh 'bash server-deploy.sh'
                     sh 'bash client-deploy.sh'
+                    sh 'kubectl rollout restart deployment client'
+                    sh 'kubectl rollout restart deployment server'
                 }
             }
         }
