@@ -1,10 +1,10 @@
-# Gunakan Node.js sebagai base image
 FROM node:18-alpine
 
 WORKDIR /apps
 
-# Copy package.json dan package-lock.json terlebih dahulu
-COPY package.json .
+COPY package*.json ./
+RUN ls -l
+
 
 # Install dependencies
 RUN npm install

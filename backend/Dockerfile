@@ -3,18 +3,12 @@ FROM node:18-alpine
 
 WORKDIR /apps
 
-# Salin file package.json & package-lock.json
+# Salin file package.json & package-lock.json dulu
 COPY package*.json ./
+RUN ls -l
 
-# Install dependencies dengan logging manual
-RUN npm install 2> npm-debug.log || ( \
-    echo "===== NPM INSTALL FAILED =====" && \
-    echo "--- File npm-debug.log ---" && \
-    cat npm-debug.log && \
-    echo "--- File /root/.npm/_logs/ ---" && \
-    ls -lah /root/.npm/_logs && \
-    tail -n 100 /root/.npm/_logs/* || true && \
-    false)
+# Install dependencies
+RUN npm install
 
 # Salin semua file source code
 COPY . .

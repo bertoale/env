@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        BACKEND_IMAGE = "albertxp/todo-server:5.0"
+        BACKEND_IMAGE = "albertxp/todo-server:latest"
         FRONTEND_IMAGE = "albertxp/todo-client:latest"
         KUBECONFIG = "/var/lib/jenkins/.kube/config"
     }
