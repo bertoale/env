@@ -15,6 +15,9 @@ pipeline {
         }
 
         stage('Build Docker Images') {
+            options {
+                timeout(time: 20, unit: 'MINUTES')
+            }
             steps {
                 dir('backend') {
                     sh "docker build --no-cache -t $BACKEND_IMAGE ."
