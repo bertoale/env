@@ -6,7 +6,7 @@ WORKDIR /apps
 RUN npm install -g npm@9
 
 COPY package*.json ./
-ls -l
+RUN ls -l
 RUN npm install || (echo "===== NPM INSTALL FAILED =====" && cat /root/.npm/_logs/* && false)
 
 COPY . .
