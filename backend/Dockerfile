@@ -2,12 +2,10 @@ FROM node:18-alpine
 
 WORKDIR /apps
 
-# Downgrade npm (misalnya ke versi 9)
-RUN npm install -g npm@9
+RUN npm install 
 
 COPY package*.json ./
-RUN ls -l
-RUN npm install || (echo "===== NPM INSTALL FAILED =====" && cat /root/.npm/_logs/* && false)
+RUN npm install
 
 COPY . .
 

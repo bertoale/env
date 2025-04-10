@@ -5,7 +5,6 @@ WORKDIR /apps
 COPY package*.json ./
 RUN ls -l
 
-
 # Install dependencies
 RUN npm install
 
