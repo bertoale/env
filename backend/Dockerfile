@@ -7,7 +7,7 @@ WORKDIR /apps
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install || (cat /root/.npm/_logs/* && false)
 
 # Salin semua file source code
 COPY . .
