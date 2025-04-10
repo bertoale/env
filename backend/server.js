@@ -19,8 +19,9 @@ mongoose.connect("process.env.MONGO_URI", {
 const connection = mongoose.connection;
 
 // Once the connection is established, callback
-connection.once("open", () => {
-  console.log("MongoDB database connection established successfully");
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 todoRoutes.route("/").get((req, res) => {
