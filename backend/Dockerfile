@@ -2,10 +2,10 @@
 FROM node:18
 
 # Tentukan working directory dalam container
-WORKDIR /apps
+WORKDIR /app
 
 # Copy package.json dan package-lock.json terlebih dahulu
-COPY package.json package-lock.json ./
+COPY package.json .
 
 # Install dependencies
 RUN npm install
