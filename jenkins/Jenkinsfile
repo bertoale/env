@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/bertoale/kelli.git', branch: 'main'
+                git url: 'https://github.com/bertoale/env.git', branch: 'main'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
             }
         }
 
-        stage('Push to Docker Hub') {
+        stage('Push to Docker Hubs') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
