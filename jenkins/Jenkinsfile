@@ -21,7 +21,7 @@ pipeline {
 
                 }
                 dir('client') {
-                    sh "docker build -t $FRONTEND_IMAGE ."
+                    sh "DOCKER_BUILDKIT=0 docker build -t $FRONTEND_IMAGE ."
                 }
             }
         }
