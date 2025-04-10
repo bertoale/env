@@ -14,7 +14,10 @@ export default class EditTodo extends Component {
 
   componentDidMount() {
     axios
-      .get("http://172.21.125.117:32222/todos/" + this.props.match.params.id)
+      .get(
+        `${process.env.REACT_APP_SERVER_URL}/todos/` +
+          this.props.match.params.id
+      )
       .then((res) => {
         this.setState({
           todo_description: res.data.todo_description,
@@ -60,7 +63,7 @@ export default class EditTodo extends Component {
     };
     axios
       .post(
-        "http://172.21.125.117:32222/todos/update/" +
+        `${process.env.REACT_APP_SERVER_URL}/todos/update/` +
           this.props.match.params.id,
         obj
       )
