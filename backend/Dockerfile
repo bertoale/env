@@ -7,7 +7,11 @@ WORKDIR /apps
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install || (cat /root/.npm/_logs/* && false)
+RUN npm install || (echo "===== NPM INSTALL FAILED, dumping logs =====" && \
+    ls -lah /root/.npm/_logs && \
+    tail -n 100 /root/.npm/_logs/* && \
+    false)
+
 
 # Salin semua file source code
 COPY . .
