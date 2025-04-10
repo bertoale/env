@@ -17,11 +17,10 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 dir('backend') {
-                    sh 'DOCKER_BUILDKIT=0 docker build --no-cache -t $BACKEND_IMAGE .'
-
+                    sh "docker build --no-cache -t $BACKEND_IMAGE ."
                 }
                 dir('client') {
-                    sh "DOCKER_BUILDKIT=0 docker build -t $FRONTEND_IMAGE ."
+                    sh "docker build -t $FRONTEND_IMAGE ."
                 }
             }
         }
