@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN ls -l
 
 # Install dependencies
-RUN npm install
+RUN npm install || (echo "===== NPM INSTALL FAILED =====" && cat /root/.npm/_logs/* && false)
 
 # Salin semua file source code
 COPY . .
