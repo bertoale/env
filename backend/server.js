@@ -13,15 +13,15 @@ app.use(cors());
 app.use(bodyParser.json());
 dotenv.config(); // ⬅️ ini wajib di awal sebelum akses process.env
 
-mongoose.connect("process.env.MONGO_URI", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 const connection = mongoose.connection;
 
 // Once the connection is established, callback
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
 });
 
 todoRoutes.route("/").get((req, res) => {
