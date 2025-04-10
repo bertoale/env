@@ -43,7 +43,7 @@ export default class CreateTodo extends Component {
     };
 
     axios
-      .post("http://172.21.125.117:32222/todos/add", newTodo)
+      .post(`${process.env.REACT_APP_SERVER_URL}/todos/add`, newTodo)
       .then((res) => console.log(res.data));
 
     this.setState({

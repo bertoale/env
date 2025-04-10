@@ -29,7 +29,7 @@ export default class TodosList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://172.21.125.117:32222/todos")
+      .get(`${process.env.REACT_APP_SERVER_URL}:32222/todos`)
       .then((res) => {
         console.log("Data fetched:", res.data); // Tambahkan log ini
         this.setState({
@@ -41,7 +41,7 @@ export default class TodosList extends Component {
 
   componentDidUpdate() {
     axios
-      .get("http://172.21.125.117:32222/todos")
+      .get(`${process.env.REACT_APP_SERVER_URL}/todos`)
       .then((res) => {
         this.setState({
           todos: res.data,

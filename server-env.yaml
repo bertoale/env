@@ -3,4 +3,4 @@ kind: Secret
 metadata:
   name: server-env
 stringData:
-  MONGO_URI: "mongodb://host.docker.internal:27017/todos"
+  MONGO_URI: "mongodb://172.21.125.117:27017/todos"

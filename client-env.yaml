@@ -3,4 +3,4 @@ kind: Secret
 metadata:
   name: client-env
 stringData:
-  REACT_APP_SERVER_URL: "http://server.todo"
+  REACT_APP_SERVER_URL: "servet.todo"
