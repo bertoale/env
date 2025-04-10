@@ -1,7 +1,7 @@
 # backend/Dockerfile
 FROM node:18
 
-WORKDIR /app
+WORKDIR /apps
 
 # Salin file package.json & package-lock.json dulu
 COPY package*.json ./

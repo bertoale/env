@@ -1,7 +1,7 @@
 # Gunakan Node.js sebagai base image
 FROM node:18
 
-WORKDIR /app
+WORKDIR /apps
 
 # Copy package.json dan package-lock.json terlebih dahulu
 COPY package.json .
