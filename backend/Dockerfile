@@ -1,16 +1,14 @@
-# backend/Dockerfile
 FROM node:18-alpine
 
 WORKDIR /apps
 
-# Salin file package.json & package-lock.json dulu
-COPY package*.json ./
-RUN ls -l
+# Downgrade npm (misalnya ke versi 9)
+RUN npm install -g npm@9
 
-# Install dependencies
+COPY package*.json ./
+ls -l
 RUN npm install || (echo "===== NPM INSTALL FAILED =====" && cat /root/.npm/_logs/* && false)
 
-# Salin semua file source code
 COPY . .
 
 EXPOSE 4000
